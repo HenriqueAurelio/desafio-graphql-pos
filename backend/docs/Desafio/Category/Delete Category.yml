@@ -1,0 +1,27 @@
+info:
+  name: Delete Category
+  type: graphql
+  seq: 5
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation DeleteCategory($id: String!) {
+        deleteCategory(id: $id) {
+          id
+          title
+        }
+      }
+    variables: |-
+      {
+        "id": "8fe69eaf-7bc8-4e2c-b532-25f9e745bace"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

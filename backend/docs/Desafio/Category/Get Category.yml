@@ -1,0 +1,33 @@
+info:
+  name: Get Category
+  type: graphql
+  seq: 1
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      query GetCategory($id: String!) {
+        getCategory(id: $id) {
+          id
+          title
+          description
+          icon
+          color
+          userId
+          createdAt
+          updatedAt
+        }
+      }
+    variables: |-
+      {
+        "id": "ID_DA_CATEGORIA_AQUI"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

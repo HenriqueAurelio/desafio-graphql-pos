@@ -1,0 +1,46 @@
+info:
+  name: Create Transaction
+  type: graphql
+  seq: 1
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation CreateTransaction($data: CreateTransactionInput!) {
+        createTransaction(data: $data) {
+          id
+          name
+          amount
+          type
+          date
+          userId
+          categoryId
+          category {
+            id
+            title
+            icon
+            color
+          }
+          createdAt
+          updatedAt
+        }
+      }
+    variables: |-
+      {
+        "data": {
+          "name": "Almoço",
+          "amount": 45.90,
+          "type": "EXPENSE",
+          "date": "2026-03-28T12:00:00.000Z",
+          "categoryId": "6c230e1f-4e54-4800-8e2e-94e346e69764"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

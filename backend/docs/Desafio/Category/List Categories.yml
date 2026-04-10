@@ -1,0 +1,33 @@
+info:
+  name: List Categories
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      query ListCategories {
+        listCategory {
+          id
+          title
+          description
+          icon
+          color
+          userId
+          createdAt
+          updatedAt
+          user{
+            id
+          }
+        }
+      }
+    variables: "{}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

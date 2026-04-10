@@ -1,0 +1,35 @@
+info:
+  name: Login
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation Login($data: LoginInput!) {
+        login(data: $data) {
+          token
+          refreshToken
+          user {
+            id
+            name
+            email
+          }
+        }
+      }
+    variables: |-
+      {
+        "data": {
+          "email": "henrique2@teste.com.br",
+          "password": "123456"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

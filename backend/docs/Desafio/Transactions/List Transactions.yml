@@ -1,0 +1,38 @@
+info:
+  name: List Transactions
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      query ListTransactions {
+        listTransactions {
+          id
+          name
+          amount
+          type
+          date
+          userId
+          categoryId
+          category {
+            id
+            title
+            icon
+            color
+          }
+          createdAt
+          updatedAt
+        }
+      }
+    variables: |-
+      {}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

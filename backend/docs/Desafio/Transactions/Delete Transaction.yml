@@ -1,0 +1,27 @@
+info:
+  name: Delete Transaction
+  type: graphql
+  seq: 5
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation DeleteTransaction($id: String!) {
+        deleteTransaction(id: $id) {
+          id
+          name
+        }
+      }
+    variables: |-
+      {
+        "id": "cc7932f2-2203-451f-816e-16a4a67e4b52"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

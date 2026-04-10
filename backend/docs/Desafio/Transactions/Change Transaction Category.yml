@@ -1,0 +1,37 @@
+info:
+  name: Change Transaction Category
+  type: graphql
+  seq: 6
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation ChangeTransactionCategory($id: String!, $data: UpdateTransactionInput!) {
+        updateTransaction(id: $id, data: $data) {
+          id
+          name
+          categoryId
+          category {
+            id
+            title
+            icon
+            color
+          }
+        }
+      }
+    variables: |-
+      {
+        "id": "cc7932f2-2203-451f-816e-16a4a67e4b52",
+        "data": {
+          "categoryId": "50f24804-2d1d-44af-b7ca-0398bb1f7b6a"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,41 @@
+info:
+  name: Create Category
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation CreateCategory($data: CreateCategoryInput!) {
+        createCategory(data: $data) {
+          title
+          description
+          icon
+          color
+          user {
+            id
+            name
+            email
+          }
+        }
+      }
+    variables: |
+      {
+        "data": {
+          "title": "Alimentação312",
+          "description": "Gastos com comida e restaurantes",
+          "icon": "🍔",
+          "color": "#FF5733"
+        }
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkYTQ5MWUyLTlhNGQtNDcxMS05M2UxLTk1NjcxMjBhNTFmZSIsImVtYWlsIjoiaGVucmlxdWUyQHRlc3RlLmNvbS5iciIsImlhdCI6MTc3NDQ5NDg5OCwiZXhwIjoxNzc0NDk1Nzk4fQ.6mNLOiW6n9DMPXj5nD4LQGiv4wwli0cvwKMGo-QJsQU
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

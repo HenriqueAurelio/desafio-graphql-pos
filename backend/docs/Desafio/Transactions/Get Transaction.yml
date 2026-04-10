@@ -1,0 +1,40 @@
+info:
+  name: Get Transaction
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      query GetTransaction($id: String!) {
+        getTransaction(id: $id) {
+          id
+          name
+          amount
+          type
+          date
+          userId
+          categoryId
+          category {
+            id
+            title
+            icon
+            color
+          }
+          createdAt
+          updatedAt
+        }
+      }
+    variables: |-
+      {
+        "id": "cc7932f2-2203-451f-816e-16a4a67e4b52"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

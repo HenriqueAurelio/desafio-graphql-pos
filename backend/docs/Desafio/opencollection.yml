@@ -1,0 +1,29 @@
+opencollection: 1.0.0
+
+info:
+  name: Desafio
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkYTQ5MWUyLTlhNGQtNDcxMS05M2UxLTk1NjcxMjBhNTFmZSIsImVtYWlsIjoiaGVucmlxdWUyQHRlc3RlLmNvbS5iciIsImlhdCI6MTc3NDgxMjE4NCwiZXhwIjoxNzc0ODEzMDg0fQ._NUhikpgUqupMY-BugwrKFOQNo6xQIn-IAX-dPk0uDs
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+    presets:
+      request:
+        type: graphql

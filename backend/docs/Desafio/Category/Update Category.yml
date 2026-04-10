@@ -1,0 +1,39 @@
+info:
+  name: Update Category
+  type: graphql
+  seq: 4
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  body:
+    query: |-
+      mutation UpdateCategory($id: String!, $data: UpdateCategoryInput!) {
+        updateCategory(id: $id, data: $data) {
+          id
+          title
+          description
+          icon
+          color
+          userId
+          createdAt
+          updatedAt
+        }
+      }
+    variables: |-
+      {
+        "id": "50f24804-2d1d-44af-b7ca-0398bb1f7b6a",
+        "data": {
+          "title": "Alimentação Atualizada",
+          "description": "Nova descrição",
+          "icon": "🥗",
+          "color": "#00FF00"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
